@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Course Quiz - Question Bank</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #a5d6a7 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #2e7d32;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1b5e20;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #558b2f;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .credit {
+            text-align: center;
+            color: #81c784;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+            font-weight: 300;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            text-transform: uppercase;
+            font-style: italic;
+        }
+
+        .credit::before {
+            content: "— ";
+            opacity: 0.6;
+        }
+
+        .credit::after {
+            content: " —";
+            opacity: 0.6;
+        }
+
+        .section-divider {
+            margin: 50px 0 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #a5d6a7 0%, #81c784 100%);
+            border-radius: 12px;
+            text-align: center;
+            color: #1b5e20;
+            font-size: 1.3em;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f1f8e9;
+            border-radius: 12px;
+            border-left: 4px solid #66bb6a;
+            transition: all 0.3s ease;
+        }
+
+        .question:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-number {
+            font-weight: 600;
+            color: #2e7d32;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .question-text {
+            margin-bottom: 20px;
+            color: #1b5e20;
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: white;
+            border: 2px solid #c8e6c9;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option:hover {
+            background: #e8f5e9;
+            border-color: #81c784;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 12px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #66bb6a;
+        }
+
+        .option label {
+            cursor: pointer;
+            flex: 1;
+            color: #2e7d32;
+        }
+
+        .option.correct {
+            background: #c8e6c9;
+            border-color: #4caf50;
+            color: #1b5e20;
+        }
+
+        .option.incorrect {
+            background: #ffcdd2;
+            border-color: #ef5350;
+            color: #c62828;
+        }
+
+        .option.user-answer {
+            border-width: 3px;
+        }
+
+        .correct-answer {
+            margin-top: 15px;
+            padding: 12px;
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            border-radius: 6px;
+            color: #e65100;
+            font-weight: 500;
+            display: none;
+        }
+
+        .correct-answer.show {
+            display: block;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        button {
+            background: linear-gradient(135deg, #66bb6a 0%, #4caf50 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            font-weight: 500;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .results {
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: 15px;
+            text-align: center;
+            display: none;
+        }
+
+        .results.show {
+            display: block;
+        }
+
+        .score {
+            font-size: 2.5em;
+            font-weight: 300;
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        .score-text {
+            font-size: 1.2em;
+            color: #558b2f;
+            margin-bottom: 20px;
+        }
+
+        .wrong-questions {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .wrong-questions h3 {
+            color: #c62828;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .reset-button {
+            margin-top: 20px;
+            background: linear-gradient(135deg, #81c784 0%, #66bb6a 100%);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .question {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="credit">Made by Ahmed Mazen</p>
+        <h1>AI Course Quiz</h1>
+        <p class="subtitle">AI Search & Intelligent Agents - Question Bank</p>
+
+        <div id="quiz-container"></div>
+
+        <div class="button-container">
+            <button id="check-answers" onclick="checkAnswers()">Check Answers</button>
+            <button id="reset-quiz" onclick="resetQuiz()" style="display: none;" class="reset-button">Reset Quiz</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="score" id="score"></div>
+            <div class="score-text" id="score-text"></div>
+            <div id="wrong-questions" class="wrong-questions"></div>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                id: 1,
+                question: "A simple reflex agent makes decisions based on:",
+                options: [
+                    "Past experiences and learning",
+                    "The current percept only",
+                    "A model of the environment",
+                    "Future goal states"
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 2,
+                question: "Greedy Best-First Search selects nodes based on:",
+                options: [
+                    "Path cost g(n)",
+                    "Heuristic value h(n)",
+                    "g(n) + h(n)",
+                    "Node depth"
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 3,
+                question: "In A* search, what does f(n) represent?",
+                options: [
+                    "Exact remaining cost from n to goal",
+                    "Estimated total cost of a solution path",
+                    "Number of nodes expanded so far",
+                    "Depth of node n"
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 4,
+                question: "The PEAS description of an AI agent includes:",
+                options: [
+                    "Performance, Environment, Actions, Sensors",
+                    "Prediction, Efficiency, Accuracy, Speed",
+                    "Perceiving, Environment, Actuators, Sensors",
+                    "Performance, Environment, Actuators, Sensors"
+                ],
+                correct: 3,
+                type: "multiple-choice"
+            },
+            {
+                id: 5,
+                question: "Which property must a heuristic h(n) satisfy to be admissible for A* search?",
+                options: [
+                    "h(n) never overestimates the true cost to a goal",
+                    "h(n) is always zero",
+                    "h(n) is always greater than the true cost",
+                    "h(n) equals the path cost so far g(n)"
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 6,
+                question: "What does problem formulation involve?",
+                options: [
+                    "Writing the algorithm",
+                    "Describing states, actions, goals, and costs",
+                    "Choosing the search strategy",
+                    "Evaluating heuristics"
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 7,
+                question: "Breadth-First Search (BFS) is guaranteed to find an optimal solution when:",
+                options: [
+                    "The graph is weighted",
+                    "The heuristic is admissible",
+                    "All step costs are equal",
+                    "The depth is infinite"
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 8,
+                question: "Which evaluation criterion checks whether an algorithm will find a solution if one exists?",
+                options: [
+                    "Time complexity",
+                    "Optimality",
+                    "Completeness",
+                    "Space complexity"
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 9,
+                question: "In A*, if h(n) = 0 for all nodes, A* behaves like:",
+                options: [
+                    "Uniform-Cost Search",
+                    "Greedy Best-First Search",
+                    "Depth-First Search",
+                    "Random Search"
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 10,
+                question: "Depth-First Search (DFS) typically uses which data structure?",
+                options: [
+                    "Queue (FIFO)",
+                    "Priority queue",
+                    "Hash table",
+                    "Stack (LIFO)"
+                ],
+                correct: 3,
+                type: "multiple-choice"
+            },
+            {
+                id: 11,
+                question: "Which of the following is not an evaluation criterion for search strategies?",
+                options: [
+                    "Completeness",
+                    "Heuristic accuracy",
+                    "Optimality",
+                    "Time and space complexity"
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 12,
+                question: "Bidirectional search works by:",
+                options: [
+                    "Searching backward only",
+                    "Searching forward only",
+                    "Random exploration",
+                    "Searching from start and goal until they meet"
+                ],
+                correct: 3,
+                type: "multiple-choice"
+            },
+            {
+                id: 13,
+                question: "An AI agent is best described as a system that:",
+                options: [
+                    "Acts randomly in its environment",
+                    "Stores data without taking actions",
+                    "Uses sensors and actuators to achieve goals",
+                    "Applies logical rules only"
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 14,
+                question: "Which uninformed search algorithm is most likely to run out of memory in large search spaces?",
+                options: [
+                    "DFS",
+                    "BFS",
+                    "IDS",
+                    "DLS"
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 15,
+                question: "The goal test in problem formulation is used to:",
+                options: [
+                    "Define the state",
+                    "Determine if the current state is a goal state",
+                    "Assign heuristic values",
+                    "Expand the search tree"
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 16,
+                question: "Which search algorithm prunes less promising paths while focusing on optimal routes?",
+                options: [
+                    "RBFS",
+                    "IDA*",
+                    "Hill climbing",
+                    "SMA*"
+                ],
+                correct: 1,  // Fixed: Changed from 0 (A) to 1 (B) as per user's note
+                type: "multiple-choice"
+            },
+            {
+                id: 17,
+                question: "Which of the following are optimization search algorithms?",
+                options: [
+                    "Simulated Annealing",
+                    "Genetic Algorithm",
+                    "Hill Climbing",
+                    "All of them"
+                ],
+                correct: 3,
+                type: "multiple-choice"
+            },
+            {
+                id: 18,
+                question: "The Turing Test is mainly associated with which AI approach?",
+                options: [
+                    "Acting humanly",
+                    "Acting rationally",
+                    "Thinking humanly",
+                    "Thinking rationally"
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 19,
+                question: "What is the key difference between DFS and BFS?",
+                options: [
+                    "DFS uses a queue, BFS uses a stack",
+                    "DFS uses a stack, BFS uses a queue",
+                    "DFS is informed, BFS is uninformed",
+                    "DFS is optimal, BFS is not"
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 20,
+                question: "A heuristic is consistent if:",
+                options: [
+                    "h(n) = 0 for all nodes",
+                    "h(n) ≤ c(n,n') + h(n')",
+                    "h(n) ≥ c(n,n') + h(n')",
+                    "h(n) = g(n)"
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 21,
+                question: "Which component of an AI agent is responsible for perceiving the environment?",
+                options: [
+                    "Actuator",
+                    "Sensor",
+                    "Environment",
+                    "Performance measure"
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 22,
+                question: "Which search strategy expands the shallowest unexpanded node first?",
+                options: [
+                    "DFS",
+                    "BFS",
+                    "Greedy search",
+                    "Hill climbing"
+                ],
+                correct: 1
+            },
+            {
+                id: 23,
+                question: "Which algorithm combines the advantages of BFS and DFS while limiting memory usage?",
+                options: [
+                    "BFS",
+                    "DFS",
+                    "Iterative Deepening Search (IDS)",
+                    "Uniform-Cost Search"
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 24,
+                question: "In uninformed search, the algorithm:",
+                options: [
+                    "Uses domain-specific knowledge",
+                    "Uses heuristics",
+                    "Has no additional problem-specific information",
+                    "Always finds the optimal solution"
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 25,
+                question: "Which search algorithm uses both path cost and heuristic information?",
+                options: [
+                    "BFS",
+                    "DFS",
+                    "A*",
+                    "DLS"
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 26,
+                question: "Which type of agent maintains an internal model of the environment?",
+                options: [
+                    "Simple reflex agent",
+                    "Model-based reflex agent",
+                    "Random agent",
+                    "Utility-based agent"
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 27,
+                question: "Which algorithm is most suitable for problems with very large or infinite state spaces and limited memory?",
+                options: [
+                    "BFS",
+                    "DFS",
+                    "IDA*",
+                    "Uniform-Cost Search"
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 28,
+                question: "What happens if a heuristic overestimates the true cost to the goal in A*?",
+                options: [
+                    "A* becomes faster but still optimal",
+                    "A* may fail to find the optimal solution",
+                    "A* becomes identical to BFS",
+                    "A* becomes complete but not optimal"
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 29,
+                question: "Which performance measure evaluates how good the solution is compared to others?",
+                options: [
+                    "Completeness",
+                    "Time complexity",
+                    "Optimality",
+                    "Space complexity"
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 30,
+                question: "Which agent type selects actions to maximize expected performance?",
+                options: [
+                    "Simple reflex agent",
+                    "Model-based agent",
+                    "Goal-based agent",
+                    "Utility-based agent"
+                ],
+                correct: 3,
+                type: "multiple-choice"
+            }
+        ];
+
+        const trueFalseQuestions = [
+            {
+                id: 31,
+                question: "The primary advantage of informed search algorithms over uninformed search is the use of heuristics to guide the search.",
+                correct: 0, // 0 = True, 1 = False
+                type: "true-false"
+            },
+            {
+                id: 32,
+                question: "In informed search, the heuristic represents the cost from the initial state to the current node.",
+                correct: 1,
+                type: "true-false"
+            },
+            {
+                id: 33,
+                question: "Breadth-First Search (BFS) is equivalent to Uniform-Cost Search when all step costs are equal to 1.",
+                correct: 0,
+                type: "true-false"
+            },
+            {
+                id: 34,
+                question: "Iterative Deepening Search combines the completeness of BFS with the low memory usage of DFS.",
+                correct: 0,
+                type: "true-false"
+            },
+            {
+                id: 35,
+                question: "The Traveling Salesman Problem is best solved using Hill Climbing.",
+                correct: 1,
+                type: "true-false"
+            },
+            {
+                id: 36,
+                question: "In Hill Climbing, the search stops when the global maximum is reached.",
+                correct: 1,
+                type: "true-false"
+            },
+            {
+                id: 37,
+                question: "Simulated Annealing can accept worse solutions with a certain probability to avoid local maxima.",
+                correct: 0,
+                type: "true-false"
+            },
+            {
+                id: 38,
+                question: "An online search algorithm can discover successors only for the state that it physically occupies.",
+                correct: 0,
+                type: "true-false"
+            },
+            {
+                id: 39,
+                question: "Optimization search algorithms start with an initial solution and iteratively try to improve it.",
+                correct: 0,
+                type: "true-false"
+            },
+            {
+                id: 40,
+                question: "In online search, the agent plans first and then acts, while in offline search it acts first and then plans.",
+                correct: 1,
+                type: "true-false"
+            },
+            {
+                id: 41,
+                question: "Uniformed search algorithms use problem-specific knowledge to guide node expansion.",
+                correct: 1,
+                type: "true-false"
+            },
+            {
+                id: 42,
+                question: "A heuristic function estimates the cost from the current node to the goal state.",
+                correct: 0,
+                type: "true-false"
+            },
+            {
+                id: 43,
+                question: "A* search is optimal if the heuristic used is admissible.",
+                correct: 0,
+                type: "true-false"
+            },
+            {
+                id: 44,
+                question: "Depth-First Search always finds the optimal solution if one exists.",
+                correct: 1,
+                type: "true-false"
+            },
+            {
+                id: 45,
+                question: "Local search algorithms typically keep only one current state in memory.",
+                correct: 0,
+                type: "true-false"
+            },
+            {
+                id: 46,
+                question: "Genetic Algorithms operate on a population of candidate solutions rather than a single solution.",
+                correct: 0,
+                type: "true-false"
+            },
+            {
+                id: 47,
+                question: "Hill Climbing is guaranteed to find the global optimum if the search space is finite.",
+                correct: 1,
+                type: "true-false"
+            },
+            {
+                id: 48,
+                question: "In online search, the agent has complete knowledge of the environment before acting.",
+                correct: 1,
+                type: "true-false"
+            },
+            {
+                id: 49,
+                question: "Simulated Annealing gradually reduces randomness in decision-making as the search progresses.",
+                correct: 0,
+                type: "true-false"
+            }
+        ];
+
+        // Combine all questions
+        const allQuestions = [...questions, ...trueFalseQuestions];
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+
+            let lastType = null;
+            allQuestions.forEach((q, index) => {
+                // Add section divider if switching question types
+                if (lastType !== q.type) {
+                    const divider = document.createElement('div');
+                    divider.className = 'section-divider';
+                    if (q.type === 'true-false') {
+                        divider.textContent = 'True / False Questions';
+                    } else {
+                        divider.textContent = 'Multiple Choice Questions';
+                    }
+                    container.appendChild(divider);
+                    lastType = q.type;
+                }
+
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.id = `question-${q.id}`;
+
+                const questionNumber = document.createElement('div');
+                questionNumber.className = 'question-number';
+                questionNumber.textContent = `Q${q.id}.`;
+
+                const questionText = document.createElement('div');
+                questionText.className = 'question-text';
+                questionText.textContent = q.question;
+
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'options';
+
+                if (q.type === 'true-false') {
+                    // Render True/False options
+                    const trueFalseOptions = ['True', 'False'];
+                    trueFalseOptions.forEach((option, optIndex) => {
+                        const optionDiv = document.createElement('div');
+                        optionDiv.className = 'option';
+
+                        const radio = document.createElement('input');
+                        radio.type = 'radio';
+                        radio.name = `q${q.id}`;
+                        radio.value = optIndex;
+                        radio.id = `q${q.id}-opt${optIndex}`;
+
+                        const label = document.createElement('label');
+                        label.htmlFor = `q${q.id}-opt${optIndex}`;
+                        label.textContent = option;
+
+                        // Make entire div clickable
+                        optionDiv.addEventListener('click', function(e) {
+                            // Only check if not clicking directly on the radio button
+                            if (e.target !== radio) {
+                                radio.checked = true;
+                            }
+                        });
+
+                        optionDiv.appendChild(radio);
+                        optionDiv.appendChild(label);
+                        optionsDiv.appendChild(optionDiv);
+                    });
+
+                    const correctAnswerDiv = document.createElement('div');
+                    correctAnswerDiv.className = 'correct-answer';
+                    correctAnswerDiv.id = `correct-${q.id}`;
+                    correctAnswerDiv.textContent = `Correct answer: ${trueFalseOptions[q.correct]}`;
+                    questionDiv.appendChild(correctAnswerDiv);
+                } else {
+                    // Render multiple choice options
+                    const optionLabels = ['a', 'b', 'c', 'd'];
+                    q.options.forEach((option, optIndex) => {
+                        const optionDiv = document.createElement('div');
+                        optionDiv.className = 'option';
+
+                        const radio = document.createElement('input');
+                        radio.type = 'radio';
+                        radio.name = `q${q.id}`;
+                        radio.value = optIndex;
+                        radio.id = `q${q.id}-opt${optIndex}`;
+
+                        const label = document.createElement('label');
+                        label.htmlFor = `q${q.id}-opt${optIndex}`;
+                        label.textContent = `${optionLabels[optIndex]}. ${option}`;
+
+                        // Make entire div clickable
+                        optionDiv.addEventListener('click', function(e) {
+                            // Only check if not clicking directly on the radio button
+                            if (e.target !== radio) {
+                                radio.checked = true;
+                            }
+                        });
+
+                        optionDiv.appendChild(radio);
+                        optionDiv.appendChild(label);
+                        optionsDiv.appendChild(optionDiv);
+                    });
+
+                    const correctAnswerDiv = document.createElement('div');
+                    correctAnswerDiv.className = 'correct-answer';
+                    correctAnswerDiv.id = `correct-${q.id}`;
+                    correctAnswerDiv.textContent = `Correct answer: ${optionLabels[q.correct]}. ${q.options[q.correct]}`;
+                    questionDiv.appendChild(correctAnswerDiv);
+                }
+
+                questionDiv.appendChild(questionNumber);
+                questionDiv.appendChild(questionText);
+                questionDiv.appendChild(optionsDiv);
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function checkAnswers() {
+            let correctCount = 0;
+            let wrongQuestions = [];
+
+            allQuestions.forEach(q => {
+                const selected = document.querySelector(`input[name="q${q.id}"]:checked`);
+                const questionDiv = document.getElementById(`question-${q.id}`);
+                const options = questionDiv.querySelectorAll('.option');
+                const correctAnswerDiv = document.getElementById(`correct-${q.id}`);
+
+                if (selected) {
+                    const selectedIndex = parseInt(selected.value);
+
+                    if (q.type === 'true-false') {
+                        const trueFalseOptions = ['True', 'False'];
+                        if (selectedIndex === q.correct) {
+                            correctCount++;
+                            options[q.correct].classList.add('correct');
+                        } else {
+                            wrongQuestions.push({
+                                id: q.id,
+                                question: q.question,
+                                userAnswer: trueFalseOptions[selectedIndex],
+                                correctAnswer: trueFalseOptions[q.correct],
+                                correctText: trueFalseOptions[q.correct],
+                                type: 'true-false'
+                            });
+                            options[selectedIndex].classList.add('incorrect', 'user-answer');
+                            options[q.correct].classList.add('correct');
+                            correctAnswerDiv.classList.add('show');
+                        }
+                    } else {
+                        // Multiple choice
+                        const optionLabels = ['a', 'b', 'c', 'd'];
+                        if (selectedIndex === q.correct) {
+                            correctCount++;
+                            options[q.correct].classList.add('correct');
+                        } else {
+                            wrongQuestions.push({
+                                id: q.id,
+                                question: q.question,
+                                userAnswer: optionLabels[selectedIndex],
+                                correctAnswer: optionLabels[q.correct],
+                                correctText: q.options[q.correct],
+                                type: 'multiple-choice'
+                            });
+                            options[selectedIndex].classList.add('incorrect', 'user-answer');
+                            options[q.correct].classList.add('correct');
+                            correctAnswerDiv.classList.add('show');
+                        }
+                    }
+                } else {
+                    // Not answered
+                    if (q.type === 'true-false') {
+                        const trueFalseOptions = ['True', 'False'];
+                        wrongQuestions.push({
+                            id: q.id,
+                            question: q.question,
+                            userAnswer: 'Not answered',
+                            correctAnswer: trueFalseOptions[q.correct],
+                            correctText: trueFalseOptions[q.correct],
+                            type: 'true-false'
+                        });
+                    } else {
+                        const optionLabels = ['a', 'b', 'c', 'd'];
+                        wrongQuestions.push({
+                            id: q.id,
+                            question: q.question,
+                            userAnswer: 'Not answered',
+                            correctAnswer: optionLabels[q.correct],
+                            correctText: q.options[q.correct],
+                            type: 'multiple-choice'
+                        });
+                    }
+                    options[q.correct].classList.add('correct');
+                    correctAnswerDiv.classList.add('show');
+                }
+            });
+
+            // Disable all radio buttons
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.disabled = true;
+            });
+
+            // Disable check button and show reset button
+            document.getElementById('check-answers').disabled = true;
+            document.getElementById('reset-quiz').style.display = 'inline-block';
+
+            // Show results
+            showResults(correctCount, wrongQuestions);
+        }
+
+        function showResults(correctCount, wrongQuestions) {
+            const resultsDiv = document.getElementById('results');
+            const scoreDiv = document.getElementById('score');
+            const scoreTextDiv = document.getElementById('score-text');
+            const wrongQuestionsDiv = document.getElementById('wrong-questions');
+
+            const totalQuestions = allQuestions.length;
+            const percentage = Math.round((correctCount / totalQuestions) * 100);
+
+            scoreDiv.textContent = `${correctCount}/${totalQuestions}`;
+            scoreTextDiv.textContent = `You scored ${percentage}%`;
+
+            if (wrongQuestions.length > 0) {
+                wrongQuestionsDiv.innerHTML = '<h3>Questions to Review:</h3>';
+                wrongQuestions.forEach(wq => {
+                    const wrongDiv = document.createElement('div');
+                    wrongDiv.className = 'question';
+                    wrongDiv.style.marginBottom = '15px';
+                    
+                    let answerDisplay = '';
+                    if (wq.type === 'true-false') {
+                        answerDisplay = `
+                            <div style="margin-top: 15px; padding: 10px; background: #ffcdd2; border-radius: 6px; color: #c62828;">
+                                <strong>Your answer:</strong> ${wq.userAnswer}
+                            </div>
+                            <div style="margin-top: 10px; padding: 10px; background: #c8e6c9; border-radius: 6px; color: #1b5e20;">
+                                <strong>Correct answer:</strong> ${wq.correctAnswer}
+                            </div>
+                        `;
+                    } else {
+                        answerDisplay = `
+                            <div style="margin-top: 15px; padding: 10px; background: #ffcdd2; border-radius: 6px; color: #c62828;">
+                                <strong>Your answer:</strong> ${wq.userAnswer}
+                            </div>
+                            <div style="margin-top: 10px; padding: 10px; background: #c8e6c9; border-radius: 6px; color: #1b5e20;">
+                                <strong>Correct answer:</strong> ${wq.correctAnswer}. ${wq.correctText}
+                            </div>
+                        `;
+                    }
+                    
+                    wrongDiv.innerHTML = `
+                        <div class="question-number">Q${wq.id}.</div>
+                        <div class="question-text">${wq.question}</div>
+                        ${answerDisplay}
+                    `;
+                    wrongQuestionsDiv.appendChild(wrongDiv);
+                });
+            } else {
+                wrongQuestionsDiv.innerHTML = '<h3 style="color: #4caf50;">Perfect! You got all questions correct! 🎉</h3>';
+            }
+
+            resultsDiv.classList.add('show');
+            resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function resetQuiz() {
+            // Re-enable all radio buttons
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.disabled = false;
+                radio.checked = false;
+            });
+
+            // Remove all styling classes
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('correct', 'incorrect', 'user-answer');
+            });
+
+            // Hide correct answer messages
+            document.querySelectorAll('.correct-answer').forEach(div => {
+                div.classList.remove('show');
+            });
+
+            // Re-enable check button and hide reset button
+            document.getElementById('check-answers').disabled = false;
+            document.getElementById('reset-quiz').style.display = 'none';
+
+            // Hide results
+            document.getElementById('results').classList.remove('show');
+        }
+
+        // Initialize quiz on page load
+        renderQuiz();
+    </script>
+</body>
+</html>
+
