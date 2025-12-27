@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operations Research Quiz - Question Bank</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #a5d6a7 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #2e7d32;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1b5e20;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #558b2f;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .credit {
+            text-align: center;
+            color: #81c784;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+            font-weight: 300;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            text-transform: uppercase;
+            font-style: italic;
+        }
+
+        .credit::before {
+            content: "— ";
+            opacity: 0.6;
+        }
+
+        .credit::after {
+            content: " —";
+            opacity: 0.6;
+        }
+
+        .section-divider {
+            margin: 50px 0 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #a5d6a7 0%, #81c784 100%);
+            border-radius: 12px;
+            text-align: center;
+            color: #1b5e20;
+            font-size: 1.3em;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f1f8e9;
+            border-radius: 12px;
+            border-left: 4px solid #66bb6a;
+            transition: all 0.3s ease;
+        }
+
+        .question:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-number {
+            font-weight: 600;
+            color: #2e7d32;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .question-text {
+            margin-bottom: 20px;
+            color: #1b5e20;
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: white;
+            border: 2px solid #c8e6c9;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option:hover {
+            background: #e8f5e9;
+            border-color: #81c784;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 12px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #66bb6a;
+        }
+
+        .option label {
+            cursor: pointer;
+            flex: 1;
+            color: #2e7d32;
+        }
+
+        .option.correct {
+            background: #c8e6c9;
+            border-color: #4caf50;
+            color: #1b5e20;
+        }
+
+        .option.incorrect {
+            background: #ffcdd2;
+            border-color: #ef5350;
+            color: #c62828;
+        }
+
+        .option.user-answer {
+            border-width: 3px;
+        }
+
+        .correct-answer {
+            margin-top: 15px;
+            padding: 12px;
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            border-radius: 6px;
+            color: #e65100;
+            font-weight: 500;
+            display: none;
+        }
+
+        .correct-answer.show {
+            display: block;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        button {
+            background: linear-gradient(135deg, #66bb6a 0%, #4caf50 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            font-weight: 500;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .results {
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: 15px;
+            text-align: center;
+            display: none;
+        }
+
+        .results.show {
+            display: block;
+        }
+
+        .score {
+            font-size: 2.5em;
+            font-weight: 300;
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        .score-text {
+            font-size: 1.2em;
+            color: #558b2f;
+            margin-bottom: 20px;
+        }
+
+        .wrong-questions {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .wrong-questions h3 {
+            color: #c62828;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .reset-button {
+            margin-top: 20px;
+            background: linear-gradient(135deg, #81c784 0%, #66bb6a 100%);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .question {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="credit">Made by Ahmed Mazen</p>
+        <h1>Operations Research Quiz</h1>
+        <p class="subtitle">Operations Research - Question Bank</p>
+
+        <div id="quiz-container"></div>
+
+        <div class="button-container">
+            <button id="check-answers" onclick="checkAnswers()">Check Answers</button>
+            <button id="reset-quiz" onclick="resetQuiz()" style="display: none;" class="reset-button">Reset Quiz</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="score" id="score"></div>
+            <div class="score-text" id="score-text"></div>
+            <div id="wrong-questions" class="wrong-questions"></div>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                id: 1,
+                question: "A feasible solution to a linear programming problem ______________.",
+                options: [
+                    "must satisfy all the constraints of the problem simultaneously",
+                    "need not satisfy all of the constraints, only some of them",
+                    "must be a corner point of the feasible region.",
+                    "must optimize the value of the objective function",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 2,
+                question: "If any value in XB column of final simplex table is negative, then the solution is ______________.",
+                options: [
+                    "feasible",
+                    "Infeasible",
+                    "Bounded",
+                    "no solution",
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 3,
+                question: "For any primal problem and its dual______________.",
+                options: [
+                    "optimal value of objective function is same",
+                    "dual will have an optimal solution if primal does too",
+                    "primal will have an optimal solution if dual does too",
+                    "both primal and dual cannot be infeasible",
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 4,
+                question: "An optimal assignment requires that the maximum number of lines which can be drawn through squares with zero opportunity cost should be equal to the number of ______________.",
+                options: [
+                    "rows or columns",
+                    "rows and columns.",
+                    "rows+columns- 1",
+                    "rows-columns.",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 5,
+                question: "To proceed with the Modified Distribution method algorithm for solving a transportation problem, the number of dummy allocations need to be added are______________.",
+                options: [
+                    "N",
+                    "n-1",
+                    "2n-1",
+                    "n-2",
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 6,
+                question: "The objective of network analysis is to______________.",
+                options: [
+                    "minimize total project duration",
+                    "minimize total project cost",
+                    "minimize production delays, interruption and conflicts",
+                    "maximize total project duration",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 7,
+                question: "If there is no non-negative replacement ratio in solving a Linear Programming Problem then the solution is ______________.",
+                options: [
+                    "Feasible",
+                    "Bounded",
+                    "Unbounded",
+                    "Infinite",
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 8,
+                question: "In marking assignments, which of the following should be preferred?",
+                options: [
+                    "Only row having single zero",
+                    "Only column having single zero",
+                    "Only row/column having single zero",
+                    "Column having more than one zero",
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 9,
+                question: "_____________ is a mathematical technique used to solve the problem of allocating limited resource among the competing activities",
+                options: [
+                    "Linear Programming problem",
+                    "Assignment Problem",
+                    "Replacement Problem",
+                    "Non-linear Programming Problem",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 10,
+                question: "In Linear Programming Problem functions to be maximized or minimized are called ______________.",
+                options: [
+                    "Constraints",
+                    "objective function",
+                    "basic solution",
+                    "feasible solution",
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 11,
+                question: "If the primal problem has n constraints and m variables then the number of constraints in the dual problem is ______________.",
+                options: [
+                    "m",
+                    "n",
+                    "m-n",
+                    "m/n",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 12,
+                question: "The assignment algorithm was developed by ______________ method.",
+                options: [
+                    "HUNGARIAN",
+                    "VOGELS",
+                    "MODI",
+                    "TRAVELING SALES MAN",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 13,
+                question: "The assignment problem is always a ______________matrix.",
+                options: [
+                    "Circle",
+                    "Square",
+                    "Rectangle",
+                    "Triangle",
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 14,
+                question: "Mathematical model of linear programming problem is important because ______________.",
+                options: [
+                    "it helps in converting the verbal description and numerical data into mathematical expression",
+                    "decision makers prefer to work with formal models",
+                    "it captures the relevant relationship among decision factors",
+                    "it enables the use of algebraic technique",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 16,
+                question: "While solving a linear programming problem infeasibility may be removed by ______________.",
+                options: [
+                    "adding another constraint",
+                    "adding another variable",
+                    "removing a constraint",
+                    "removing a variable",
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 17,
+                question: "The right-hand side constant of a constraint in a primal problem appears in the corresponding dual as______________.",
+                options: [
+                    "a coefficient in the objective function",
+                    "a right-hand side constant of a function",
+                    "an input output coefficient a left-hand side constraint",
+                    "coefficient variable",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 18,
+                question: "Maximization assignment problem is transformed into a minimization problem by______________.",
+                options: [
+                    "adding each entry in a column from the maximum value in that column",
+                    "subtracting each entry in a column from the maximum value in that column",
+                    "subtracting each entry in the table from the maximum value in that table",
+                    "adding each entry in the table from the maximum value in that table",
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 19,
+                question: "The transportation problem deals with the transportation of ______________.",
+                options: [
+                    "a single product from a source to several destinations",
+                    "a single product from several sources to several destinations",
+                    "a single product from several sources to a destination",
+                    "a multi -product from several sources to several destinations",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 20,
+                question: "In the network, one activity may connect any ______________ nodes",
+                options: [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 21,
+                question: "Graphical method is also known as ______________.",
+                options: [
+                    "Simplex Method",
+                    "Dual Simplex Method",
+                    "Big-M Method",
+                    "Search-Approach Method",
+                ],
+                correct: 3,
+                type: "multiple-choice"
+            },
+            {
+                id: 22,
+                question: "When the total demand is equal to supply then the transportation problem is said to be ______________",
+                options: [
+                    "balanced",
+                    "unbalanced",
+                    "maximization",
+                    "minimization",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 23,
+                question: "Linear Programming Problem is a technique of finding the ______________.",
+                options: [
+                    "optimal value",
+                    "approximate value",
+                    "initial value",
+                    "infeasible value",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 24,
+                question: "Any solution to a Linear Programming Problem which also satisfies the non- negative notifications of the problem has ______________.",
+                options: [
+                    "solution",
+                    "basic solution",
+                    "basic feasible solution",
+                    "feasible solution",
+                ],
+                correct: 3,
+                type: "multiple-choice"
+            },
+            {
+                id: 25,
+                question: "The cost of a slack variable is ______________",
+                options: [
+                    "0",
+                    "1",
+                    "2",
+                    "-1",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 26,
+                question: "Linear Programming Problem that can be solved by graphical method has ______________.",
+                options: [
+                    "linear constraints",
+                    "quadratic constraints",
+                    "nonlinear constraints",
+                    "bi-quadratic constraints",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 27,
+                question: "If one or more variable vanish then a basic solution to the system is called ______________.",
+                options: [
+                    "non feasible region",
+                    "feasible region",
+                    "degenerate solution",
+                    "basic solution",
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 28,
+                question: "A Linear Programming Problem have ______________ optimal solution",
+                options: [
+                    "1",
+                    "2",
+                    "more than 1",
+                    "more than 2",
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 29,
+                question: "Chose the correct statement: A degenerate solution is one that______________.",
+                options: [
+                    "gives an optimum solution to the Linear Programming Problem",
+                    "gives zero value to one or more of the basic variables",
+                    "yields more than one way to achieve the objective",
+                    "makes use of all available resources",
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 30,
+                question: "At any iteration of the usual simplex method, if there is at least one basic variable in the basis at zero level and all the index numbers are non-negative, the current solution is ______________.",
+                options: [
+                    "basic solution",
+                    "non basic solution",
+                    "degenerate",
+                    "non degenerate",
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 31,
+                question: "In a network diagram an event is denoted by the symbol ______________.",
+                options: [
+                    "Arrow",
+                    "straight line",
+                    "curve",
+                    "circle",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 32,
+                question: "An ______________ represent the start or completion of some activity and as such it consumes no time",
+                options: [
+                    "activity",
+                    "event",
+                    "slack",
+                    "path",
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 34,
+                question: "The assignment problem will have alternate solutions when the total opportunity cost matrix has ______________",
+                options: [
+                    "atleast one zero in each row and column",
+                    "when all rows have two zeros",
+                    "when there is a tie between zero opportunity cost cells",
+                    "if two diagonal elements are zeros.",
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 35,
+                question: "The region common to all the constraints including the non-negativity restrictions is called the ______________.",
+                options: [
+                    "solution space",
+                    "unique solution",
+                    "optimum solution",
+                    "infeasible solution",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 36,
+                question: "A activity in a network diagram is said to be ______________ if the delay in its start will further delay the project completion time.",
+                options: [
+                    "forward pass",
+                    "backward pass",
+                    "critical.",
+                    "non-critical.",
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 37,
+                question: "Operation research approach is typically based on the use of ______________.",
+                options: [
+                    "physical model.",
+                    "mathematical model.",
+                    "iconic model.",
+                    "descriptive model.",
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 38,
+                question: "An Iso-profit line represents ______________.",
+                options: [
+                    "a boundary of the feasible region",
+                    "an infinite number of solutions all of which yield the same cost",
+                    "an infinite number of solutions all of which yield the same profit",
+                    "an infinite number of optimal solutions",
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 39,
+                question: "The assignment problem is a special case of transportation problem in which ______________.",
+                options: [
+                    "number of origins are less than the number of destinations",
+                    "number of origins are greater than the number of destinations",
+                    "number of origins are greater than or equal to the number of destinations",
+                    "number of origins equals the number of destinations",
+                ],
+                correct: 3,
+                type: "multiple-choice"
+            },
+            {
+                id: 40,
+                question: "In the transportation table, empty cells will be called ______________.",
+                options: [
+                    "Occupied",
+                    "Unoccupied",
+                    "No",
+                    "finite",
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 41,
+                question: "______________ is a completely degenerate form of a transportation problem",
+                options: [
+                    "Transportation Problem",
+                    "Assignment Problem",
+                    "Travelling salesman problem",
+                    "Replacement Problem",
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 42,
+                question: "While solving an assignment problem, an activity is assigned to a resource through a square with zero opportunity cost because the objective is to______________.",
+                options: [
+                    "minimize total cost of assignment.",
+                    "reduce the cost of assignment to zero",
+                    "reduce the cost of that particular assignment to zero",
+                    "reduce total cost of assignment",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 43,
+                question: "In an assignment problem involving 5 workers and 5 jobs, total number of assignments possible are ______________.",
+                options: [
+                    "5",
+                    "10",
+                    "15",
+                    "20",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 44,
+                question: "Graphical method of linear programming is useful when the number of decision variable are ______________",
+                options: [
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 45,
+                question: "The cost of a surplus variable is ______________.",
+                options: [
+                    "0",
+                    "1",
+                    "2",
+                    "-1",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 46,
+                question: "The dual of the dual is ______________.",
+                options: [
+                    "dual-primal",
+                    "primal-dual",
+                    "dual",
+                    "primal",
+                ],
+                correct: 3,
+                type: "multiple-choice"
+            },
+            {
+                id: 47,
+                question: "Solution of a Linear Programming Problem when permitted to be infinitely large is called ______________.",
+                options: [
+                    "unbounded",
+                    "bounded",
+                    "optimum solution",
+                    "no solution",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 48,
+                question: "When the total demand is not equal to supply then it is said to be ______________.",
+                options: [
+                    "balanced",
+                    "unbalanced",
+                    "maximization",
+                    "minimization",
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 49,
+                question: "All equality constraints can be replaced equivalently by ______________ inequalities",
+                options: [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 50,
+                question: "If the primal has an unbound objective function value, then the dual has ______________.",
+                options: [
+                    "solution",
+                    "basic solution",
+                    "basic feasible solution",
+                    "no feasible solution",
+                ],
+                correct: 3,
+                type: "multiple-choice"
+            },
+            {
+                id: 51,
+                question: "If there is no non-negative replacement ratio in a solution which is sought to be improved, then the solution is ______________.",
+                options: [
+                    "bounded",
+                    "unbounded",
+                    "no solution",
+                    "alternative solution",
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 52,
+                question: "A project consists of a number of tasks which are called ______________.",
+                options: [
+                    "activities",
+                    "floats",
+                    "events",
+                    "paths",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 53,
+                question: "An activity is represented by a/an ______________.",
+                options: [
+                    "arrow",
+                    "straight line",
+                    "curve",
+                    "arc",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 54,
+                question: "The similarity between assignment problem and transportation problem is ______________.",
+                options: [
+                    "both are rectangular matrices",
+                    "both are square matrices",
+                    "both can be solved y graphical method",
+                    "both have objective function and non-negativity constraints",
+                ],
+                correct: 3,
+                type: "multiple-choice"
+            },
+            {
+                id: 55,
+                question: "The penalty for not taking correct decision is known as ______________.",
+                options: [
+                    "fine",
+                    "loss",
+                    "cost",
+                    "opportunity cost",
+                ],
+                correct: 3,
+                type: "multiple-choice"
+            },
+            {
+                id: 56,
+                question: "The area bounded by all the given constraints is called ______________.",
+                options: [
+                    "feasible region",
+                    "basic solution",
+                    "non feasible region",
+                    "optimum basic feasible solution",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 57,
+                question: "Consider the linear equation 2 x1 + 3 x2 - 4 x3 + 5 x4 = 10 How many basic and non-basic variables are defined by this equation?",
+                options: [
+                    "One variable is basic, three variables are non-basic",
+                    "Two variables are basic, two variables are non-basic",
+                    "Three variables are basic, one variable is non-basic",
+                    "All four variables are basic",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 58,
+                question: "Feasible solution satisfies __________",
+                options: [
+                    "constraints",
+                    "non-negative restriction",
+                    "[a] and [b] both",
+                    "[a] , [b] and Optimum solution",
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 59,
+                question: "In a transportation problem, we must make the number of __________ and __________ equal. destinations; sources",
+                options: [
+                    "units supplied; units demanded",
+                    "columns; rows",
+                    "positive cost coefficients; negative cost coefficients",
+                    "warehouses; suppliers",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 60,
+                question: "Which of the following is a method used in making decisions with operations research?",
+                options: [
+                    "Studying the workforce",
+                    "Analyzing situations",
+                    "Accounting for the human element",
+                    "Mathematical methods",
+                ],
+                correct: 3,
+                type: "multiple-choice"
+            },
+            {
+                id: 61,
+                question: "In assignment problem of maximization, the objective is to maximize",
+                options: [
+                    "Profit",
+                    "optimization",
+                    "cost",
+                    "None of the above",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 62,
+                question: "In graphical representation the bounded region is known as __________ region.",
+                options: [
+                    "Solution",
+                    "basic solution",
+                    "feasible solution",
+                    "optimal",
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 63,
+                question: "In operations research, the __________ are prepared for situations.",
+                options: [
+                    "mathematical models",
+                    "physical models diagrammatic",
+                    "diagrammatic models",
+                    "all of above",
+                ],
+                correct: 0,
+                type: "multiple-choice"
+            },
+            {
+                id: 64,
+                question: "One disadvantage of using North-West Corner rule to find initial solution to the transportation problem is that",
+                options: [
+                    "It is complicated to use",
+                    "It does not take into account cost of transportation",
+                    "It leads to a degenerate initial solution",
+                    "All of the above",
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 65,
+                question: "Operations management can be defined as the application of __________ to a problem within a system to yield the optimal solution.",
+                options: [
+                    "Suitable manpower",
+                    "mathematical techniques, models, and tools",
+                    "Financial operations",
+                    "all of above",
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 66,
+                question: "Operations research is based upon collected information, knowledge and advanced study of various factors impacting a particular operation. This leads to more informed __________.",
+                options: [
+                    "Management processes",
+                    "Decision making",
+                    "Procedures",
+                    "all of above",
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 67,
+                question: "OR can evaluate only the effects of __________.",
+                options: [
+                    "Personnel factors.",
+                    "Financial factors",
+                    "Numeric and quantifiable factors.",
+                    "all of above",
+                ],
+                correct: 2,
+                type: "multiple-choice"
+            },
+            {
+                id: 68,
+                question: "The method of finding an initial solution based upon opportunity costs is called __________.",
+                options: [
+                    "the northwest corner rule",
+                    "Vogel's approximation",
+                    "Johanson's theorem",
+                    "Hungarian method",
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 69,
+                question: "The purpose of a dummy source or dummy destination in a transportation problem is to",
+                options: [
+                    "prevent the solution from becoming degenerate.",
+                    "obtain a balance between total supply and total demand.",
+                    "make certain that the total cost does not exceed some specified figure.",
+                    "provide a means of representing a dummy problem.",
+                ],
+                correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 70,
+                question: "The Integer Linear Programming (ILP) may be",
+                options: [
+                    "PURE-integer programming",
+                    "Mixed-integer linear programming",
+                    "0-1 integer linear programming",
+                    "All of the above",
+                ],
+                correct: 3,
+                type: "multiple-choice"
+            },
+            {
+                id: 71,
+                question: "Sensitivity analysis is the study of how the changes in the ---------------of an optimization model affect the optimal solution.",
+                options: [
+                    "right-hand-side value for a constraint",
+                    "coefficient of the objective function",
+                    "coefficient of the decision variable",
+                    "All of the above",
+                ],
+                correct: 3,
+                type: "multiple-choice"
+            },
+        ];
+
+
+        // No true/false questions for this quiz
+        const trueFalseQuestions = [];
+
+        // Combine all questions
+        const allQuestions = [...questions];
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+
+            let lastType = null;
+            allQuestions.forEach((q, index) => {
+                // Add section divider if switching question types
+                if (lastType !== q.type) {
+                    const divider = document.createElement('div');
+                    divider.className = 'section-divider';
+                    if (q.type === 'true-false') {
+                        divider.textContent = 'True / False Questions';
+                    } else {
+                        divider.textContent = 'Multiple Choice Questions';
+                    }
+                    container.appendChild(divider);
+                    lastType = q.type;
+                }
+
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.id = `question-${q.id}`;
+
+                const questionNumber = document.createElement('div');
+                questionNumber.className = 'question-number';
+                questionNumber.textContent = `Q${q.id}.`;
+
+                const questionText = document.createElement('div');
+                questionText.className = 'question-text';
+                questionText.textContent = q.question;
+
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'options';
+
+                if (q.type === 'true-false') {
+                    // Render True/False options
+                    const trueFalseOptions = ['True', 'False'];
+                    trueFalseOptions.forEach((option, optIndex) => {
+                        const optionDiv = document.createElement('div');
+                        optionDiv.className = 'option';
+
+                        const radio = document.createElement('input');
+                        radio.type = 'radio';
+                        radio.name = `q${q.id}`;
+                        radio.value = optIndex;
+                        radio.id = `q${q.id}-opt${optIndex}`;
+
+                        const label = document.createElement('label');
+                        label.htmlFor = `q${q.id}-opt${optIndex}`;
+                        label.textContent = option;
+
+                        // Make entire div clickable
+                        optionDiv.addEventListener('click', function(e) {
+                            // Only check if not clicking directly on the radio button
+                            if (e.target !== radio) {
+                                radio.checked = true;
+                            }
+                        });
+
+                        optionDiv.appendChild(radio);
+                        optionDiv.appendChild(label);
+                        optionsDiv.appendChild(optionDiv);
+                    });
+
+                    const correctAnswerDiv = document.createElement('div');
+                    correctAnswerDiv.className = 'correct-answer';
+                    correctAnswerDiv.id = `correct-${q.id}`;
+                    correctAnswerDiv.textContent = `Correct answer: ${trueFalseOptions[q.correct]}`;
+                    questionDiv.appendChild(correctAnswerDiv);
+                } else {
+                    // Render multiple choice options
+                    const optionLabels = ['a', 'b', 'c', 'd'];
+                    q.options.forEach((option, optIndex) => {
+                        const optionDiv = document.createElement('div');
+                        optionDiv.className = 'option';
+
+                        const radio = document.createElement('input');
+                        radio.type = 'radio';
+                        radio.name = `q${q.id}`;
+                        radio.value = optIndex;
+                        radio.id = `q${q.id}-opt${optIndex}`;
+
+                        const label = document.createElement('label');
+                        label.htmlFor = `q${q.id}-opt${optIndex}`;
+                        label.textContent = `${optionLabels[optIndex]}. ${option}`;
+
+                        // Make entire div clickable
+                        optionDiv.addEventListener('click', function(e) {
+                            // Only check if not clicking directly on the radio button
+                            if (e.target !== radio) {
+                                radio.checked = true;
+                            }
+                        });
+
+                        optionDiv.appendChild(radio);
+                        optionDiv.appendChild(label);
+                        optionsDiv.appendChild(optionDiv);
+                    });
+
+                    const correctAnswerDiv = document.createElement('div');
+                    correctAnswerDiv.className = 'correct-answer';
+                    correctAnswerDiv.id = `correct-${q.id}`;
+                    correctAnswerDiv.textContent = `Correct answer: ${optionLabels[q.correct]}. ${q.options[q.correct]}`;
+                    questionDiv.appendChild(correctAnswerDiv);
+                }
+
+                questionDiv.appendChild(questionNumber);
+                questionDiv.appendChild(questionText);
+                questionDiv.appendChild(optionsDiv);
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function checkAnswers() {
+            let correctCount = 0;
+            let wrongQuestions = [];
+
+            allQuestions.forEach(q => {
+                const selected = document.querySelector(`input[name="q${q.id}"]:checked`);
+                const questionDiv = document.getElementById(`question-${q.id}`);
+                const options = questionDiv.querySelectorAll('.option');
+                const correctAnswerDiv = document.getElementById(`correct-${q.id}`);
+
+                if (selected) {
+                    const selectedIndex = parseInt(selected.value);
+
+                    if (q.type === 'true-false') {
+                        const trueFalseOptions = ['True', 'False'];
+                        if (selectedIndex === q.correct) {
+                            correctCount++;
+                            options[q.correct].classList.add('correct');
+                        } else {
+                            wrongQuestions.push({
+                                id: q.id,
+                                question: q.question,
+                                userAnswer: trueFalseOptions[selectedIndex],
+                                correctAnswer: trueFalseOptions[q.correct],
+                                correctText: trueFalseOptions[q.correct],
+                                type: 'true-false'
+                            });
+                            options[selectedIndex].classList.add('incorrect', 'user-answer');
+                            options[q.correct].classList.add('correct');
+                            correctAnswerDiv.classList.add('show');
+                        }
+                    } else {
+                        // Multiple choice
+                        const optionLabels = ['a', 'b', 'c', 'd'];
+                        if (selectedIndex === q.correct) {
+                            correctCount++;
+                            options[q.correct].classList.add('correct');
+                        } else {
+                            wrongQuestions.push({
+                                id: q.id,
+                                question: q.question,
+                                userAnswer: optionLabels[selectedIndex],
+                                correctAnswer: optionLabels[q.correct],
+                                correctText: q.options[q.correct],
+                                type: 'multiple-choice'
+                            });
+                            options[selectedIndex].classList.add('incorrect', 'user-answer');
+                            options[q.correct].classList.add('correct');
+                            correctAnswerDiv.classList.add('show');
+                        }
+                    }
+                } else {
+                    // Not answered
+                    if (q.type === 'true-false') {
+                        const trueFalseOptions = ['True', 'False'];
+                        wrongQuestions.push({
+                            id: q.id,
+                            question: q.question,
+                            userAnswer: 'Not answered',
+                            correctAnswer: trueFalseOptions[q.correct],
+                            correctText: trueFalseOptions[q.correct],
+                            type: 'true-false'
+                        });
+                    } else {
+                        const optionLabels = ['a', 'b', 'c', 'd'];
+                        wrongQuestions.push({
+                            id: q.id,
+                            question: q.question,
+                            userAnswer: 'Not answered',
+                            correctAnswer: optionLabels[q.correct],
+                            correctText: q.options[q.correct],
+                            type: 'multiple-choice'
+                        });
+                    }
+                    options[q.correct].classList.add('correct');
+                    correctAnswerDiv.classList.add('show');
+                }
+            });
+
+            // Disable all radio buttons
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.disabled = true;
+            });
+
+            // Disable check button and show reset button
+            document.getElementById('check-answers').disabled = true;
+            document.getElementById('reset-quiz').style.display = 'inline-block';
+
+            // Show results
+            showResults(correctCount, wrongQuestions);
+        }
+
+        function showResults(correctCount, wrongQuestions) {
+            const resultsDiv = document.getElementById('results');
+            const scoreDiv = document.getElementById('score');
+            const scoreTextDiv = document.getElementById('score-text');
+            const wrongQuestionsDiv = document.getElementById('wrong-questions');
+
+            const totalQuestions = allQuestions.length;
+            const percentage = Math.round((correctCount / totalQuestions) * 100);
+
+            scoreDiv.textContent = `${correctCount}/${totalQuestions}`;
+            scoreTextDiv.textContent = `You scored ${percentage}%`;
+
+            if (wrongQuestions.length > 0) {
+                wrongQuestionsDiv.innerHTML = '<h3>Questions to Review:</h3>';
+                wrongQuestions.forEach(wq => {
+                    const wrongDiv = document.createElement('div');
+                    wrongDiv.className = 'question';
+                    wrongDiv.style.marginBottom = '15px';
+                    
+                    let answerDisplay = '';
+                    if (wq.type === 'true-false') {
+                        answerDisplay = `
+                            <div style="margin-top: 15px; padding: 10px; background: #ffcdd2; border-radius: 6px; color: #c62828;">
+                                <strong>Your answer:</strong> ${wq.userAnswer}
+                            </div>
+                            <div style="margin-top: 10px; padding: 10px; background: #c8e6c9; border-radius: 6px; color: #1b5e20;">
+                                <strong>Correct answer:</strong> ${wq.correctAnswer}
+                            </div>
+                        `;
+                    } else {
+                        answerDisplay = `
+                            <div style="margin-top: 15px; padding: 10px; background: #ffcdd2; border-radius: 6px; color: #c62828;">
+                                <strong>Your answer:</strong> ${wq.userAnswer}
+                            </div>
+                            <div style="margin-top: 10px; padding: 10px; background: #c8e6c9; border-radius: 6px; color: #1b5e20;">
+                                <strong>Correct answer:</strong> ${wq.correctAnswer}. ${wq.correctText}
+                            </div>
+                        `;
+                    }
+                    
+                    wrongDiv.innerHTML = `
+                        <div class="question-number">Q${wq.id}.</div>
+                        <div class="question-text">${wq.question}</div>
+                        ${answerDisplay}
+                    `;
+                    wrongQuestionsDiv.appendChild(wrongDiv);
+                });
+            } else {
+                wrongQuestionsDiv.innerHTML = '<h3 style="color: #4caf50;">Perfect! You got all questions correct! 🎉</h3>';
+            }
+
+            resultsDiv.classList.add('show');
+            resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function resetQuiz() {
+            // Re-enable all radio buttons
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.disabled = false;
+                radio.checked = false;
+            });
+
+            // Remove all styling classes
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('correct', 'incorrect', 'user-answer');
+            });
+
+            // Hide correct answer messages
+            document.querySelectorAll('.correct-answer').forEach(div => {
+                div.classList.remove('show');
+            });
+
+            // Re-enable check button and hide reset button
+            document.getElementById('check-answers').disabled = false;
+            document.getElementById('reset-quiz').style.display = 'none';
+
+            // Hide results
+            document.getElementById('results').classList.remove('show');
+        }
+
+        // Initialize quiz on page load
+        renderQuiz();
+    </script>
+</body>
+</html>
+
