@@ -640,7 +640,7 @@
                     "curve",
                     "circle",
                 ],
-                correct: 0,
+                correct: 3,
                 type: "multiple-choice"
             },
             {
@@ -653,6 +653,18 @@
                     "path",
                 ],
                 correct: 1,
+                type: "multiple-choice"
+            },
+            {
+                id: 33,
+                question: "______________ is used for non-repetitive jobs",
+                options: [
+                    "Queue",
+                    "Replacement",
+                    "CPM",
+                    "PERT",
+                ],
+                correct: 2,
                 type: "multiple-choice"
             },
             {
@@ -1114,11 +1126,23 @@
         ];
 
 
-        // No true/false questions for this quiz
-        const trueFalseQuestions = [];
+        const trueFalseQuestions = [
+            {
+                id: 72,
+                question: "Dynamic programming is an approach to problem solving that decomposes a large problem that may be difficult to solve into a number of smaller problems that are usually much easier to solve.",
+                correct: 0, // 0 = True, 1 = False
+                type: "true-false"
+            },
+            {
+                id: 73,
+                question: "Integer linear program A linear program with the additional requirement that one or more of the variables must be integer.",
+                correct: 0, // 0 = True, 1 = False
+                type: "true-false"
+            }
+        ];
 
         // Combine all questions
-        const allQuestions = [...questions];
+        const allQuestions = [...questions, ...trueFalseQuestions];
 
         function renderQuiz() {
             const container = document.getElementById('quiz-container');
