@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operations Research Quiz - Question Bank</title>
+    <title>Quiz - Question Bank</title>
     <style>
         * {
             margin: 0;
@@ -264,8 +264,8 @@
 <body>
     <div class="container">
         <p class="credit">Made by Ahmed Mazen</p>
-        <h1>Operations Research Quiz</h1>
-        <p class="subtitle">Operations Research - Question Bank</p>
+        <h1>Quiz</h1>
+        <p class="subtitle">Question Bank</p>
 
         <div id="quiz-container"></div>
 
@@ -283,873 +283,1154 @@
 
     <script>
         const questions = [
-            {
-                id: 1,
-                question: "A feasible solution to a linear programming problem ______________.",
-                options: [
-                    "must satisfy all the constraints of the problem simultaneously",
-                    "need not satisfy all of the constraints, only some of them",
-                    "must be a corner point of the feasible region.",
-                    "must optimize the value of the objective function",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 2,
-                question: "If any value in XB column of final simplex table is negative, then the solution is ______________.",
-                options: [
-                    "feasible",
-                    "Infeasible",
-                    "Bounded",
-                    "no solution",
-                ],
-                correct: 1,
-                type: "multiple-choice"
-            },
-            {
-                id: 3,
-                question: "For any primal problem and its dual______________.",
-                options: [
-                    "optimal value of objective function is same",
-                    "dual will have an optimal solution if primal does too",
-                    "primal will have an optimal solution if dual does too",
-                    "both primal and dual cannot be infeasible",
-                ],
-                correct: 2,
-                type: "multiple-choice"
-            },
-            {
-                id: 4,
-                question: "An optimal assignment requires that the maximum number of lines which can be drawn through squares with zero opportunity cost should be equal to the number of ______________.",
-                options: [
-                    "rows or columns",
-                    "rows and columns.",
-                    "rows+columns- 1",
-                    "rows-columns.",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 5,
-                question: "To proceed with the Modified Distribution method algorithm for solving a transportation problem, the number of dummy allocations need to be added are______________.",
-                options: [
-                    "N",
-                    "n-1",
-                    "2n-1",
-                    "n-2",
-                ],
-                correct: 1,
-                type: "multiple-choice"
-            },
-            {
-                id: 6,
-                question: "The objective of network analysis is to______________.",
-                options: [
-                    "minimize total project duration",
-                    "minimize total project cost",
-                    "minimize production delays, interruption and conflicts",
-                    "maximize total project duration",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 7,
-                question: "If there is no non-negative replacement ratio in solving a Linear Programming Problem then the solution is ______________.",
-                options: [
-                    "Feasible",
-                    "Bounded",
-                    "Unbounded",
-                    "Infinite",
-                ],
-                correct: 2,
-                type: "multiple-choice"
-            },
-            {
-                id: 8,
-                question: "In marking assignments, which of the following should be preferred?",
-                options: [
-                    "Only row having single zero",
-                    "Only column having single zero",
-                    "Only row/column having single zero",
-                    "Column having more than one zero",
-                ],
-                correct: 2,
-                type: "multiple-choice"
-            },
-            {
-                id: 9,
-                question: "_____________ is a mathematical technique used to solve the problem of allocating limited resource among the competing activities",
-                options: [
-                    "Linear Programming problem",
-                    "Assignment Problem",
-                    "Replacement Problem",
-                    "Non-linear Programming Problem",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 10,
-                question: "In Linear Programming Problem functions to be maximized or minimized are called ______________.",
-                options: [
-                    "Constraints",
-                    "objective function",
-                    "basic solution",
-                    "feasible solution",
-                ],
-                correct: 1,
-                type: "multiple-choice"
-            },
-            {
-                id: 11,
-                question: "If the primal problem has n constraints and m variables then the number of constraints in the dual problem is ______________.",
-                options: [
-                    "m",
-                    "n",
-                    "m-n",
-                    "m/n",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 12,
-                question: "The assignment algorithm was developed by ______________ method.",
-                options: [
-                    "HUNGARIAN",
-                    "VOGELS",
-                    "MODI",
-                    "TRAVELING SALES MAN",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 13,
-                question: "The assignment problem is always a ______________matrix.",
-                options: [
-                    "Circle",
-                    "Square",
-                    "Rectangle",
-                    "Triangle",
-                ],
-                correct: 1,
-                type: "multiple-choice"
-            },
-            {
-                id: 14,
-                question: "Mathematical model of linear programming problem is important because ______________.",
-                options: [
-                    "it helps in converting the verbal description and numerical data into mathematical expression",
-                    "decision makers prefer to work with formal models",
-                    "it captures the relevant relationship among decision factors",
-                    "it enables the use of algebraic technique",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 16,
-                question: "While solving a linear programming problem infeasibility may be removed by ______________.",
-                options: [
-                    "adding another constraint",
-                    "adding another variable",
-                    "removing a constraint",
-                    "removing a variable",
-                ],
-                correct: 2,
-                type: "multiple-choice"
-            },
-            {
-                id: 17,
-                question: "The right-hand side constant of a constraint in a primal problem appears in the corresponding dual as______________.",
-                options: [
-                    "a coefficient in the objective function",
-                    "a right-hand side constant of a function",
-                    "an input output coefficient a left-hand side constraint",
-                    "coefficient variable",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 18,
-                question: "Maximization assignment problem is transformed into a minimization problem by______________.",
-                options: [
-                    "adding each entry in a column from the maximum value in that column",
-                    "subtracting each entry in a column from the maximum value in that column",
-                    "subtracting each entry in the table from the maximum value in that table",
-                    "adding each entry in the table from the maximum value in that table",
-                ],
-                correct: 2,
-                type: "multiple-choice"
-            },
-            {
-                id: 19,
-                question: "The transportation problem deals with the transportation of ______________.",
-                options: [
-                    "a single product from a source to several destinations",
-                    "a single product from several sources to several destinations",
-                    "a single product from several sources to a destination",
-                    "a multi -product from several sources to several destinations",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 20,
-                question: "In the network, one activity may connect any ______________ nodes",
-                options: [
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                ],
-                correct: 1,
-                type: "multiple-choice"
-            },
-            {
-                id: 21,
-                question: "Graphical method is also known as ______________.",
-                options: [
-                    "Simplex Method",
-                    "Dual Simplex Method",
-                    "Big-M Method",
-                    "Search-Approach Method",
-                ],
-                correct: 3,
-                type: "multiple-choice"
-            },
-            {
-                id: 22,
-                question: "When the total demand is equal to supply then the transportation problem is said to be ______________",
-                options: [
-                    "balanced",
-                    "unbalanced",
-                    "maximization",
-                    "minimization",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 23,
-                question: "Linear Programming Problem is a technique of finding the ______________.",
-                options: [
-                    "optimal value",
-                    "approximate value",
-                    "initial value",
-                    "infeasible value",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 24,
-                question: "Any solution to a Linear Programming Problem which also satisfies the non- negative notifications of the problem has ______________.",
-                options: [
-                    "solution",
-                    "basic solution",
-                    "basic feasible solution",
-                    "feasible solution",
-                ],
-                correct: 3,
-                type: "multiple-choice"
-            },
-            {
-                id: 25,
-                question: "The cost of a slack variable is ______________",
-                options: [
-                    "0",
-                    "1",
-                    "2",
-                    "-1",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 26,
-                question: "Linear Programming Problem that can be solved by graphical method has ______________.",
-                options: [
-                    "linear constraints",
-                    "quadratic constraints",
-                    "nonlinear constraints",
-                    "bi-quadratic constraints",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 27,
-                question: "If one or more variable vanish then a basic solution to the system is called ______________.",
-                options: [
-                    "non feasible region",
-                    "feasible region",
-                    "degenerate solution",
-                    "basic solution",
-                ],
-                correct: 2,
-                type: "multiple-choice"
-            },
-            {
-                id: 28,
-                question: "A Linear Programming Problem have ______________ optimal solution",
-                options: [
-                    "1",
-                    "2",
-                    "more than 1",
-                    "more than 2",
-                ],
-                correct: 2,
-                type: "multiple-choice"
-            },
-            {
-                id: 29,
-                question: "Chose the correct statement: A degenerate solution is one that______________.",
-                options: [
-                    "gives an optimum solution to the Linear Programming Problem",
-                    "gives zero value to one or more of the basic variables",
-                    "yields more than one way to achieve the objective",
-                    "makes use of all available resources",
-                ],
-                correct: 1,
-                type: "multiple-choice"
-            },
-            {
-                id: 30,
-                question: "At any iteration of the usual simplex method, if there is at least one basic variable in the basis at zero level and all the index numbers are non-negative, the current solution is ______________.",
-                options: [
-                    "basic solution",
-                    "non basic solution",
-                    "degenerate",
-                    "non degenerate",
-                ],
-                correct: 2,
-                type: "multiple-choice"
-            },
-            {
-                id: 31,
-                question: "In a network diagram an event is denoted by the symbol ______________.",
-                options: [
-                    "Arrow",
-                    "straight line",
-                    "curve",
-                    "circle",
-                ],
-                correct: 3,
-                type: "multiple-choice"
-            },
-            {
-                id: 32,
-                question: "An ______________ represent the start or completion of some activity and as such it consumes no time",
-                options: [
-                    "activity",
-                    "event",
-                    "slack",
-                    "path",
-                ],
-                correct: 1,
-                type: "multiple-choice"
-            },
-            {
-                id: 33,
-                question: "______________ is used for non-repetitive jobs",
-                options: [
-                    "Queue",
-                    "Replacement",
-                    "CPM",
-                    "PERT",
-                ],
-                correct: 2,
-                type: "multiple-choice"
-            },
-            {
-                id: 34,
-                question: "The assignment problem will have alternate solutions when the total opportunity cost matrix has ______________",
-                options: [
-                    "atleast one zero in each row and column",
-                    "when all rows have two zeros",
-                    "when there is a tie between zero opportunity cost cells",
-                    "if two diagonal elements are zeros.",
-                ],
-                correct: 2,
-                type: "multiple-choice"
-            },
-            {
-                id: 35,
-                question: "The region common to all the constraints including the non-negativity restrictions is called the ______________.",
-                options: [
-                    "solution space",
-                    "unique solution",
-                    "optimum solution",
-                    "infeasible solution",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 36,
-                question: "A activity in a network diagram is said to be ______________ if the delay in its start will further delay the project completion time.",
-                options: [
-                    "forward pass",
-                    "backward pass",
-                    "critical.",
-                    "non-critical.",
-                ],
-                correct: 2,
-                type: "multiple-choice"
-            },
-            {
-                id: 37,
-                question: "Operation research approach is typically based on the use of ______________.",
-                options: [
-                    "physical model.",
-                    "mathematical model.",
-                    "iconic model.",
-                    "descriptive model.",
-                ],
-                correct: 1,
-                type: "multiple-choice"
-            },
-            {
-                id: 38,
-                question: "An Iso-profit line represents ______________.",
-                options: [
-                    "a boundary of the feasible region",
-                    "an infinite number of solutions all of which yield the same cost",
-                    "an infinite number of solutions all of which yield the same profit",
-                    "an infinite number of optimal solutions",
-                ],
-                correct: 2,
-                type: "multiple-choice"
-            },
-            {
-                id: 39,
-                question: "The assignment problem is a special case of transportation problem in which ______________.",
-                options: [
-                    "number of origins are less than the number of destinations",
-                    "number of origins are greater than the number of destinations",
-                    "number of origins are greater than or equal to the number of destinations",
-                    "number of origins equals the number of destinations",
-                ],
-                correct: 3,
-                type: "multiple-choice"
-            },
-            {
-                id: 40,
-                question: "In the transportation table, empty cells will be called ______________.",
-                options: [
-                    "Occupied",
-                    "Unoccupied",
-                    "No",
-                    "finite",
-                ],
-                correct: 1,
-                type: "multiple-choice"
-            },
-            {
-                id: 41,
-                question: "______________ is a completely degenerate form of a transportation problem",
-                options: [
-                    "Transportation Problem",
-                    "Assignment Problem",
-                    "Travelling salesman problem",
-                    "Replacement Problem",
-                ],
-                correct: 1,
-                type: "multiple-choice"
-            },
-            {
-                id: 42,
-                question: "While solving an assignment problem, an activity is assigned to a resource through a square with zero opportunity cost because the objective is to______________.",
-                options: [
-                    "minimize total cost of assignment.",
-                    "reduce the cost of assignment to zero",
-                    "reduce the cost of that particular assignment to zero",
-                    "reduce total cost of assignment",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 43,
-                question: "In an assignment problem involving 5 workers and 5 jobs, total number of assignments possible are ______________.",
-                options: [
-                    "5",
-                    "10",
-                    "15",
-                    "20",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 44,
-                question: "Graphical method of linear programming is useful when the number of decision variable are ______________",
-                options: [
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 45,
-                question: "The cost of a surplus variable is ______________.",
-                options: [
-                    "0",
-                    "1",
-                    "2",
-                    "-1",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 46,
-                question: "The dual of the dual is ______________.",
-                options: [
-                    "dual-primal",
-                    "primal-dual",
-                    "dual",
-                    "primal",
-                ],
-                correct: 3,
-                type: "multiple-choice"
-            },
-            {
-                id: 47,
-                question: "Solution of a Linear Programming Problem when permitted to be infinitely large is called ______________.",
-                options: [
-                    "unbounded",
-                    "bounded",
-                    "optimum solution",
-                    "no solution",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 48,
-                question: "When the total demand is not equal to supply then it is said to be ______________.",
-                options: [
-                    "balanced",
-                    "unbalanced",
-                    "maximization",
-                    "minimization",
-                ],
-                correct: 1,
-                type: "multiple-choice"
-            },
-            {
-                id: 49,
-                question: "All equality constraints can be replaced equivalently by ______________ inequalities",
-                options: [
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                ],
-                correct: 1,
-                type: "multiple-choice"
-            },
-            {
-                id: 50,
-                question: "If the primal has an unbound objective function value, then the dual has ______________.",
-                options: [
-                    "solution",
-                    "basic solution",
-                    "basic feasible solution",
-                    "no feasible solution",
-                ],
-                correct: 3,
-                type: "multiple-choice"
-            },
-            {
-                id: 51,
-                question: "If there is no non-negative replacement ratio in a solution which is sought to be improved, then the solution is ______________.",
-                options: [
-                    "bounded",
-                    "unbounded",
-                    "no solution",
-                    "alternative solution",
-                ],
-                correct: 1,
-                type: "multiple-choice"
-            },
-            {
-                id: 52,
-                question: "A project consists of a number of tasks which are called ______________.",
-                options: [
-                    "activities",
-                    "floats",
-                    "events",
-                    "paths",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 53,
-                question: "An activity is represented by a/an ______________.",
-                options: [
-                    "arrow",
-                    "straight line",
-                    "curve",
-                    "arc",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 54,
-                question: "The similarity between assignment problem and transportation problem is ______________.",
-                options: [
-                    "both are rectangular matrices",
-                    "both are square matrices",
-                    "both can be solved y graphical method",
-                    "both have objective function and non-negativity constraints",
-                ],
-                correct: 3,
-                type: "multiple-choice"
-            },
-            {
-                id: 55,
-                question: "The penalty for not taking correct decision is known as ______________.",
-                options: [
-                    "fine",
-                    "loss",
-                    "cost",
-                    "opportunity cost",
-                ],
-                correct: 3,
-                type: "multiple-choice"
-            },
-            {
-                id: 56,
-                question: "The area bounded by all the given constraints is called ______________.",
-                options: [
-                    "feasible region",
-                    "basic solution",
-                    "non feasible region",
-                    "optimum basic feasible solution",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 57,
-                question: "Consider the linear equation 2 x1 + 3 x2 - 4 x3 + 5 x4 = 10 How many basic and non-basic variables are defined by this equation?",
-                options: [
-                    "One variable is basic, three variables are non-basic",
-                    "Two variables are basic, two variables are non-basic",
-                    "Three variables are basic, one variable is non-basic",
-                    "All four variables are basic",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 58,
-                question: "Feasible solution satisfies __________",
-                options: [
-                    "constraints",
-                    "non-negative restriction",
-                    "[a] and [b] both",
-                    "[a] , [b] and Optimum solution",
-                ],
-                correct: 2,
-                type: "multiple-choice"
-            },
-            {
-                id: 59,
-                question: "In a transportation problem, we must make the number of __________ and __________ equal. destinations; sources",
-                options: [
-                    "units supplied; units demanded",
-                    "columns; rows",
-                    "positive cost coefficients; negative cost coefficients",
-                    "warehouses; suppliers",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 60,
-                question: "Which of the following is a method used in making decisions with operations research?",
-                options: [
-                    "Studying the workforce",
-                    "Analyzing situations",
-                    "Accounting for the human element",
-                    "Mathematical methods",
-                ],
-                correct: 3,
-                type: "multiple-choice"
-            },
-            {
-                id: 61,
-                question: "In assignment problem of maximization, the objective is to maximize",
-                options: [
-                    "Profit",
-                    "optimization",
-                    "cost",
-                    "None of the above",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 62,
-                question: "In graphical representation the bounded region is known as __________ region.",
-                options: [
-                    "Solution",
-                    "basic solution",
-                    "feasible solution",
-                    "optimal",
-                ],
-                correct: 2,
-                type: "multiple-choice"
-            },
-            {
-                id: 63,
-                question: "In operations research, the __________ are prepared for situations.",
-                options: [
-                    "mathematical models",
-                    "physical models diagrammatic",
-                    "diagrammatic models",
-                    "all of above",
-                ],
-                correct: 0,
-                type: "multiple-choice"
-            },
-            {
-                id: 64,
-                question: "One disadvantage of using North-West Corner rule to find initial solution to the transportation problem is that",
-                options: [
-                    "It is complicated to use",
-                    "It does not take into account cost of transportation",
-                    "It leads to a degenerate initial solution",
-                    "All of the above",
-                ],
-                correct: 1,
-                type: "multiple-choice"
-            },
-            {
-                id: 65,
-                question: "Operations management can be defined as the application of __________ to a problem within a system to yield the optimal solution.",
-                options: [
-                    "Suitable manpower",
-                    "mathematical techniques, models, and tools",
-                    "Financial operations",
-                    "all of above",
-                ],
-                correct: 1,
-                type: "multiple-choice"
-            },
-            {
-                id: 66,
-                question: "Operations research is based upon collected information, knowledge and advanced study of various factors impacting a particular operation. This leads to more informed __________.",
-                options: [
-                    "Management processes",
-                    "Decision making",
-                    "Procedures",
-                    "all of above",
-                ],
-                correct: 1,
-                type: "multiple-choice"
-            },
-            {
-                id: 67,
-                question: "OR can evaluate only the effects of __________.",
-                options: [
-                    "Personnel factors.",
-                    "Financial factors",
-                    "Numeric and quantifiable factors.",
-                    "all of above",
-                ],
-                correct: 2,
-                type: "multiple-choice"
-            },
-            {
-                id: 68,
-                question: "The method of finding an initial solution based upon opportunity costs is called __________.",
-                options: [
-                    "the northwest corner rule",
-                    "Vogel's approximation",
-                    "Johanson's theorem",
-                    "Hungarian method",
-                ],
-                correct: 1,
-                type: "multiple-choice"
-            },
-            {
-                id: 69,
-                question: "The purpose of a dummy source or dummy destination in a transportation problem is to",
-                options: [
-                    "prevent the solution from becoming degenerate.",
-                    "obtain a balance between total supply and total demand.",
-                    "make certain that the total cost does not exceed some specified figure.",
-                    "provide a means of representing a dummy problem.",
-                ],
-                correct: 1,
-                type: "multiple-choice"
-            },
-            {
-                id: 70,
-                question: "The Integer Linear Programming (ILP) may be",
-                options: [
-                    "PURE-integer programming",
-                    "Mixed-integer linear programming",
-                    "0-1 integer linear programming",
-                    "All of the above",
-                ],
-                correct: 3,
-                type: "multiple-choice"
-            },
-            {
-                id: 71,
-                question: "Sensitivity analysis is the study of how the changes in the ---------------of an optimization model affect the optimal solution.",
-                options: [
-                    "right-hand-side value for a constraint",
-                    "coefficient of the objective function",
-                    "coefficient of the decision variable",
-                    "All of the above",
-                ],
-                correct: 3,
-                type: "multiple-choice"
-            },
-        ];
-
-
-        const trueFalseQuestions = [
-            {
-                id: 72,
-                question: "Dynamic programming is an approach to problem solving that decomposes a large problem that may be difficult to solve into a number of smaller problems that are usually much easier to solve.",
-                correct: 0, // 0 = True, 1 = False
-                type: "true-false"
-            },
-            {
-                id: 73,
-                question: "Integer linear program A linear program with the additional requirement that one or more of the variables must be integer.",
-                correct: 0, // 0 = True, 1 = False
-                type: "true-false"
-            }
-        ];
-
-        // Combine all questions
-        const allQuestions = [...questions, ...trueFalseQuestions];
+    {
+        "id": 1,
+        "question": "Which of the following is NOT a major OS component?",
+        "options": [
+            "Process Management",
+            "Memory Management",
+            "Compiler Design",
+            "Storage Management"
+        ],
+        "correct": 2,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 2,
+        "question": "Bootstrap program is stored in:",
+        "options": [
+            "RAM",
+            "ROM or EEPROM",
+            "Hard disk",
+            "Cache memory"
+        ],
+        "correct": 1,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 3,
+        "question": "The degree of multiprogramming refers to:",
+        "options": [
+            "Number of CPUs",
+            "Number of processes in memory",
+            "Number of users",
+            "Number of I/O devices"
+        ],
+        "correct": 1,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 4,
+        "question": "Which interrupt is generated by the CPU itself?",
+        "options": [
+            "Hardware interrupt",
+            "Software interrupt (trap)",
+            "External interrupt",
+            "Timer interrupt"
+        ],
+        "correct": 1,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 5,
+        "question": "DMA (Direct Memory Access) is used for:",
+        "options": [
+            "High-speed I/O devices",
+            "CPU scheduling",
+            "Memory allocation",
+            "Process synchronization"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 6,
+        "question": "An operating system acts as an intermediary between:",
+        "options": [
+            "User and hardware",
+            "Hardware and software",
+            "Compiler and hardware",
+            "Application and compiler"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 7,
+        "question": "Cache memory is:",
+        "options": [
+            "Faster than main memory",
+            "Slower than main memory",
+            "Same speed as main memory",
+            "Faster than registers"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 8,
+        "question": "What is the primary goal of an operating system?",
+        "options": [
+            "To make the computer system convenient to use",
+            "To use computer hardware efficiently",
+            "To act as an interface between user and hardware",
+            "To provide network services"
+        ],
+        "correct": 2,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 9,
+        "question": "Time-sharing systems primarily focus on:",
+        "options": [
+            "Interactive computer system",
+            "Batch processing",
+            "Real-time processing",
+            "Network services"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 10,
+        "question": "System calls provide:",
+        "options": [
+            "Interface to OS services",
+            "Direct hardware access",
+            "Compiler functions",
+            "Database operations"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 11,
+        "question": "Dual-mode operation provides:",
+        "options": [
+            "Protection for the operating system",
+            "Faster execution",
+            "Multiple user support",
+            "Network communication"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 12,
+        "question": "In multiprogramming, the CPU switches to another job when:",
+        "options": [
+            "Current job finishes",
+            "Current job waits for I/O",
+            "Timer expires",
+            "User requests it"
+        ],
+        "correct": 1,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 13,
+        "question": "Privileged instructions can only be executed in:",
+        "options": [
+            "User mode",
+            "Kernel mode",
+            "Both modes",
+            "Protected mode only"
+        ],
+        "correct": 1,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 14,
+        "question": "A mode bit is used to:",
+        "options": [
+            "Distinguish between user and kernel mode",
+            "Control I/O operations",
+            "Manage memory",
+            "Schedule processes"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 15,
+        "question": "Which storage is volatile?",
+        "options": [
+            "RAM",
+            "ROM",
+            "Hard disk",
+            "Flash memory"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 16,
+        "question": "The memory hierarchy is ordered from fastest to slowest as:",
+        "options": [
+            "Registers, cache, main memory, disk",
+            "Cache, registers, main memory, disk",
+            "Main memory, cache, registers, disk",
+            "Disk, main memory, cache, registers"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 17,
+        "question": "The main purpose of an interrupt is to:",
+        "options": [
+            "Stop program execution permanently",
+            "Signal CPU of an event requiring attention",
+            "Transfer control to user program",
+            "Allocate memory"
+        ],
+        "correct": 1,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 18,
+        "question": "In a computer system, protection is ensured by:",
+        "options": [
+            "Hardware support only",
+            "Operating system policies only",
+            "Hardware and OS working together",
+            "User programs"
+        ],
+        "correct": 2,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 19,
+        "question": "Caching is primarily used for:",
+        "options": [
+            "Copying information to faster storage",
+            "Backing up data",
+            "Encrypting data",
+            "Compressing data"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 20,
+        "question": "Which of the following is a batch processing system?",
+        "options": [
+            "Mainframe computers",
+            "Personal computers",
+            "Handheld computers",
+            "Embedded systems"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 21,
+        "question": "Asymmetric multiprocessing involves:",
+        "options": [
+            "Master-slave relationship",
+            "All processors equal",
+            "No coordination needed",
+            "Single processor only"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 22,
+        "question": "Symmetric multiprocessing (SMP) means:",
+        "options": [
+            "Each processor performs different tasks",
+            "All processors are peers",
+            "One processor is master",
+            "Processors share no memory"
+        ],
+        "correct": 1,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 23,
+        "question": "Real-time systems are characterized by:",
+        "options": [
+            "Strict time constraints",
+            "High throughput",
+            "Maximum CPU utilization",
+            "Multiple users"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 24,
+        "question": "A clustered system is characterized by:",
+        "options": [
+            "Multiple systems working together",
+            "Single system with multiple cores",
+            "Virtual machines on one system",
+            "Distributed file systems only"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 25,
+        "question": "Virtual memory allows:",
+        "options": [
+            "Execution of programs larger than physical memory",
+            "Faster program execution",
+            "Better GUI display",
+            "Network communication"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 26,
+        "question": "Hard real-time systems:",
+        "options": [
+            "Must meet deadlines always",
+            "Can tolerate some deadline misses",
+            "Are less critical than soft real-time",
+            "Have no timing constraints"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 27,
+        "question": "The interrupt vector contains:",
+        "options": [
+            "Addresses of interrupt service routines",
+            "Interrupt priorities",
+            "Device identifiers",
+            "Process states"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 28,
+        "question": "Spooling stands for:",
+        "options": [
+            "Simultaneous Peripheral Operations On-Line",
+            "Serial Processing Of Output Listings",
+            "System Programming Of Operating Loops",
+            "Standard Procedure Of Operation Loading"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 29,
+        "question": "Context switch involves:",
+        "options": [
+            "Saving state of current process",
+            "Loading state of new process",
+            "Switching between processes",
+            "Switching users"
+        ],
+        "correct": 2,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 30,
+        "question": "A trap is caused by:",
+        "options": [
+            "Hardware failure",
+            "Error or user request",
+            "Timer",
+            "I/O completion"
+        ],
+        "correct": 1,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 31,
+        "question": "Which is NOT a type of system call?",
+        "options": [
+            "Process control",
+            "File management",
+            "Compilation",
+            "Device management"
+        ],
+        "correct": 2,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 32,
+        "question": "The operating system kernel is:",
+        "options": [
+            "Always in memory",
+            "Loaded on demand",
+            "Stored in secondary storage",
+            "Part of application software"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 33,
+        "question": "A CPU bound process:",
+        "options": [
+            "Requires more computation",
+            "Spends more time in I/O",
+            "Never performs I/O",
+            "Uses only memory"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 34,
+        "question": "An I/O bound process:",
+        "options": [
+            "Spends more time doing I/O",
+            "Requires more CPU time",
+            "Never uses CPU",
+            "Only uses disk"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 35,
+        "question": "Turnaround time is:",
+        "options": [
+            "Time from submission to completion",
+            "Time in ready queue",
+            "Time in execution",
+            "Time in waiting"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 36,
+        "question": "Throughput refers to:",
+        "options": [
+            "Number of processes completed per unit time",
+            "Time to complete a process",
+            "CPU utilization",
+            "Response time"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 37,
+        "question": "CPU utilization should ideally be:",
+        "options": [
+            "As high as possible",
+            "As low as possible",
+            "Around 50%",
+            "Zero"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 38,
+        "question": "Response time in interactive systems is:",
+        "options": [
+            "Time from request to first response",
+            "Total execution time",
+            "Time to complete process",
+            "Time in ready queue"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 39,
+        "question": "NUMA (Non-Uniform Memory Access) means:",
+        "options": [
+            "Access time depends on memory location",
+            "All memory access is uniform",
+            "No memory sharing",
+            "Only local memory exists"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 40,
+        "question": "Multicore systems have:",
+        "options": [
+            "Multiple computing cores on single chip",
+            "Multiple separate processors",
+            "Single core with hyperthreading",
+            "Multiple motherboards"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 41,
+        "question": "Which is NOT an OS service for users?",
+        "options": [
+            "Program execution",
+            "I/O operations",
+            "Power management",
+            "Communication"
+        ],
+        "correct": 2,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 42,
+        "question": "Operating system services are provided for:",
+        "options": [
+            "User convenience only",
+            "System efficiency only",
+            "User convenience and system efficiency",
+            "Hardware management only"
+        ],
+        "correct": 2,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 43,
+        "question": "System calls are:",
+        "options": [
+            "Programming interface to OS services",
+            "Hardware instructions",
+            "Compiler directives",
+            "Database queries"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 44,
+        "question": "A user interface can be:",
+        "options": [
+            "Command-line interface (CLI)",
+            "Graphical user interface (GUI)",
+            "Batch interface",
+            "Any of these types"
+        ],
+        "correct": 3,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 45,
+        "question": "The main advantage of using API rather than system calls is:",
+        "options": [
+            "Program portability",
+            "Faster execution",
+            "Less memory usage",
+            "Better security"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 46,
+        "question": "An API (Application Programming Interface) is:",
+        "options": [
+            "Set of functions available to programmers",
+            "Hardware specification",
+            "System call itself",
+            "Operating system kernel"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 47,
+        "question": "System call parameters can be passed by:",
+        "options": [
+            "Registers",
+            "Block or table in memory",
+            "Stack",
+            "Any of these methods"
+        ],
+        "correct": 3,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 48,
+        "question": "Which is a file management system call?",
+        "options": [
+            "wait()",
+            "create()",
+            "malloc()",
+            "signal()"
+        ],
+        "correct": 1,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 49,
+        "question": "Which is a process control system call?",
+        "options": [
+            "fork()",
+            "read()",
+            "open()",
+            "chmod()"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 50,
+        "question": "Communication between processes can be achieved through:",
+        "options": [
+            "Shared memory",
+            "Message passing",
+            "Either shared memory or message passing",
+            "Files only"
+        ],
+        "correct": 2,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 51,
+        "question": "UNIX operating system structure consists of layers including:",
+        "options": [
+            "Kernel at the core",
+            "Shell at the core",
+            "Applications at the core",
+            "Drivers at the core"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 52,
+        "question": "The MS-DOS operating system uses:",
+        "options": [
+            "Single-tasking",
+            "Multi-tasking",
+            "Time-sharing",
+            "Distributed processing"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 53,
+        "question": "The main advantage of layered approach is:",
+        "options": [
+            "Simplicity of construction",
+            "High performance",
+            "Less memory usage",
+            "Faster execution"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 54,
+        "question": "Layered approach in OS design means:",
+        "options": [
+            "OS divided into layers",
+            "OS divided into modules",
+            "OS as single unit",
+            "OS distributed across network"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 55,
+        "question": "A microkernel provides:",
+        "options": [
+            "Minimal process and memory management",
+            "All OS services in kernel",
+            "No process management",
+            "Only file management"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 56,
+        "question": "The main disadvantage of layered approach is:",
+        "options": [
+            "Careful planning required",
+            "Easy to implement",
+            "Very modular",
+            "Highly portable"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 57,
+        "question": "Disadvantage of microkernel is:",
+        "options": [
+            "Performance overhead of user-kernel communication",
+            "Complex design",
+            "No modularity",
+            "Poor security"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 58,
+        "question": "Benefits of microkernel include:",
+        "options": [
+            "Easier to extend",
+            "Better performance",
+            "Less overhead",
+            "Simpler design"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 59,
+        "question": "Virtual machines provide:",
+        "options": [
+            "Illusion of multiple machines",
+            "Faster execution",
+            "Less memory usage",
+            "Direct hardware access"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 60,
+        "question": "Loadable kernel modules:",
+        "options": [
+            "Can be loaded at boot or runtime",
+            "Must be loaded at boot only",
+            "Cannot be unloaded",
+            "Are not used in modern OS"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 61,
+        "question": "Operating system generation (OS gen) involves:",
+        "options": [
+            "Configuring OS for specific hardware",
+            "Updating OS kernel",
+            "Installing applications",
+            "Creating user accounts"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 62,
+        "question": "The Java Virtual Machine (JVM):",
+        "options": [
+            "Executes Java bytecode",
+            "Executes machine code",
+            "Executes assembly code",
+            "Executes Python code"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 63,
+        "question": "GRUB is an example of:",
+        "options": [
+            "Boot loader",
+            "File system",
+            "Shell",
+            "System call"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 64,
+        "question": "System boot process starts with:",
+        "options": [
+            "Bootstrap program loading OS",
+            "User login",
+            "Application loading",
+            "Network initialization"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 65,
+        "question": "System programs provide:",
+        "options": [
+            "Convenient environment for program development",
+            "Kernel functions",
+            "Hardware drivers",
+            "Network protocols"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 66,
+        "question": "A shell is:",
+        "options": [
+            "Command interpreter",
+            "Part of kernel",
+            "Hardware component",
+            "Device driver"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 67,
+        "question": "A monolithic kernel:",
+        "options": [
+            "Has all services in kernel space",
+            "Has minimal services in kernel",
+            "Has no services in kernel",
+            "Uses message passing only"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 68,
+        "question": "Debugging a system involves:",
+        "options": [
+            "Finding and fixing errors",
+            "Compiling programs",
+            "Installing software",
+            "Managing users"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 69,
+        "question": "Protection mechanisms in OS:",
+        "options": [
+            "Control access to resources",
+            "Increase CPU speed",
+            "Manage network traffic",
+            "Compile programs"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 70,
+        "question": "System calls for communication include:",
+        "options": [
+            "send() and receive()",
+            "open() and close()",
+            "fork() and exec()",
+            "malloc() and free()"
+        ],
+        "correct": 0,
+        "type": "multiple-choice"
+    },
+    {
+        "id": 71,
+        "question": "The bootstrap program is the first program to run when a computer is powered on.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 0,
+        "type": "true-false"
+    },
+    {
+        "id": 72,
+        "question": "An operating system is a resource allocator and control program.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 0,
+        "type": "true-false"
+    },
+    {
+        "id": 73,
+        "question": "In multiprogramming, multiple programs are kept in memory simultaneously.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 0,
+        "type": "true-false"
+    },
+    {
+        "id": 74,
+        "question": "Interrupts can only be generated by hardware devices.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 1,
+        "type": "true-false"
+    },
+    {
+        "id": 75,
+        "question": "Time-sharing and multitasking are the same concept.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 0,
+        "type": "true-false"
+    },
+    {
+        "id": 76,
+        "question": "Cache memory is larger but slower than main memory.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 1,
+        "type": "true-false"
+    },
+    {
+        "id": 77,
+        "question": "DMA transfers data directly between I/O device and CPU registers.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 1,
+        "type": "true-false"
+    },
+    {
+        "id": 78,
+        "question": "Privileged instructions can be executed in user mode.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 1,
+        "type": "true-false"
+    },
+    {
+        "id": 79,
+        "question": "A system call changes the mode from user mode to kernel mode.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 0,
+        "type": "true-false"
+    },
+    {
+        "id": 80,
+        "question": "Virtual memory allows execution of processes that are not completely in memory.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 0,
+        "type": "true-false"
+    },
+    {
+        "id": 81,
+        "question": "In asymmetric multiprocessing, all processors are treated equally.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 1,
+        "type": "true-false"
+    },
+    {
+        "id": 82,
+        "question": "Symmetric multiprocessing requires special master processor.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 1,
+        "type": "true-false"
+    },
+    {
+        "id": 83,
+        "question": "Hard real-time systems can tolerate occasional deadline misses.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 1,
+        "type": "true-false"
+    },
+    {
+        "id": 84,
+        "question": "Real-time systems must complete operations within strict time constraints.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 0,
+        "type": "true-false"
+    },
+    {
+        "id": 85,
+        "question": "A trap is a software-generated interrupt.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 0,
+        "type": "true-false"
+    },
+    {
+        "id": 86,
+        "question": "Spooling allows overlap of I/O of one job with computation of another.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 0,
+        "type": "true-false"
+    },
+    {
+        "id": 87,
+        "question": "Context switching is overhead and does no useful work.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 0,
+        "type": "true-false"
+    },
+    {
+        "id": 88,
+        "question": "The kernel is the part of OS that runs in user mode.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 1,
+        "type": "true-false"
+    },
+    {
+        "id": 89,
+        "question": "Multicore systems have multiple processors on separate chips.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 1,
+        "type": "true-false"
+    },
+    {
+        "id": 90,
+        "question": "Throughput is the number of processes completed per unit time.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 0,
+        "type": "true-false"
+    },
+    {
+        "id": 91,
+        "question": "APIs hide the details of system calls from programmers.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 0,
+        "type": "true-false"
+    },
+    {
+        "id": 92,
+        "question": "System calls provide a means for user programs to request OS services.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 0,
+        "type": "true-false"
+    },
+    {
+        "id": 93,
+        "question": "Microkernel architecture moves services to user space.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 0,
+        "type": "true-false"
+    },
+    {
+        "id": 94,
+        "question": "MS-DOS was designed with a layered structure.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 1,
+        "type": "true-false"
+    },
+    {
+        "id": 95,
+        "question": "Virtual machines provide complete protection between system components.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 0,
+        "type": "true-false"
+    },
+    {
+        "id": 96,
+        "question": "Layered approach makes OS easier to debug and verify.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 0,
+        "type": "true-false"
+    },
+    {
+        "id": 97,
+        "question": "Loadable kernel modules are more flexible than layered approach.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 0,
+        "type": "true-false"
+    },
+    {
+        "id": 98,
+        "question": "System programs provide a convenient environment for program development and execution.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 0,
+        "type": "true-false"
+    },
+    {
+        "id": 99,
+        "question": "The shell is part of the operating system kernel.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 1,
+        "type": "true-false"
+    },
+    {
+        "id": 100,
+        "question": "A monolithic kernel is more modular than a microkernel.",
+        "options": [
+            "True",
+            "False"
+        ],
+        "correct": 1,
+        "type": "true-false"
+    }
+];
 
         function renderQuiz() {
             const container = document.getElementById('quiz-container');
             container.innerHTML = '';
 
             let lastType = null;
-            allQuestions.forEach((q, index) => {
+            questions.forEach((q, index) => {
                 // Add section divider if switching question types
                 if (lastType !== q.type) {
                     const divider = document.createElement('div');
@@ -1195,9 +1476,7 @@
                         label.htmlFor = `q${q.id}-opt${optIndex}`;
                         label.textContent = option;
 
-                        // Make entire div clickable
                         optionDiv.addEventListener('click', function(e) {
-                            // Only check if not clicking directly on the radio button
                             if (e.target !== radio) {
                                 radio.checked = true;
                             }
@@ -1217,31 +1496,31 @@
                     // Render multiple choice options
                     const optionLabels = ['a', 'b', 'c', 'd'];
                     q.options.forEach((option, optIndex) => {
-                        const optionDiv = document.createElement('div');
-                        optionDiv.className = 'option';
+                    const optionDiv = document.createElement('div');
+                    optionDiv.className = 'option';
 
-                        const radio = document.createElement('input');
-                        radio.type = 'radio';
-                        radio.name = `q${q.id}`;
-                        radio.value = optIndex;
-                        radio.id = `q${q.id}-opt${optIndex}`;
+                    const radio = document.createElement('input');
+                    radio.type = 'radio';
+                    radio.name = `q${q.id}`;
+                    radio.value = optIndex;
+                    radio.id = `q${q.id}-opt${optIndex}`;
 
-                        const label = document.createElement('label');
-                        label.htmlFor = `q${q.id}-opt${optIndex}`;
-                        label.textContent = `${optionLabels[optIndex]}. ${option}`;
+                    const label = document.createElement('label');
+                    label.htmlFor = `q${q.id}-opt${optIndex}`;
+                    label.textContent = `${optionLabels[optIndex]}. ${option}`;
 
-                        // Make entire div clickable
-                        optionDiv.addEventListener('click', function(e) {
-                            // Only check if not clicking directly on the radio button
-                            if (e.target !== radio) {
-                                radio.checked = true;
-                            }
-                        });
-
-                        optionDiv.appendChild(radio);
-                        optionDiv.appendChild(label);
-                        optionsDiv.appendChild(optionDiv);
+                    // Make entire div clickable
+                    optionDiv.addEventListener('click', function(e) {
+                        // Only check if not clicking directly on the radio button
+                        if (e.target !== radio) {
+                            radio.checked = true;
+                        }
                     });
+
+                    optionDiv.appendChild(radio);
+                    optionDiv.appendChild(label);
+                    optionsDiv.appendChild(optionDiv);
+                });
 
                     const correctAnswerDiv = document.createElement('div');
                     correctAnswerDiv.className = 'correct-answer';
@@ -1261,7 +1540,7 @@
             let correctCount = 0;
             let wrongQuestions = [];
 
-            allQuestions.forEach(q => {
+            questions.forEach(q => {
                 const selected = document.querySelector(`input[name="q${q.id}"]:checked`);
                 const questionDiv = document.getElementById(`question-${q.id}`);
                 const options = questionDiv.querySelectorAll('.option');
@@ -1269,7 +1548,7 @@
 
                 if (selected) {
                     const selectedIndex = parseInt(selected.value);
-
+                    
                     if (q.type === 'true-false') {
                         const trueFalseOptions = ['True', 'False'];
                         if (selectedIndex === q.correct) {
@@ -1289,7 +1568,6 @@
                             correctAnswerDiv.classList.add('show');
                         }
                     } else {
-                        // Multiple choice
                         const optionLabels = ['a', 'b', 'c', 'd'];
                         if (selectedIndex === q.correct) {
                             correctCount++;
@@ -1355,7 +1633,7 @@
             const scoreTextDiv = document.getElementById('score-text');
             const wrongQuestionsDiv = document.getElementById('wrong-questions');
 
-            const totalQuestions = allQuestions.length;
+            const totalQuestions = questions.length;
             const percentage = Math.round((correctCount / totalQuestions) * 100);
 
             scoreDiv.textContent = `${correctCount}/${totalQuestions}`;
@@ -1434,5 +1712,4 @@
     </script>
 </body>
 </html>
-
 
